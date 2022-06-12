@@ -1,0 +1,16 @@
+﻿@model Author
+
+<div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">Create new author</h4>
+                  <form method="post" class="forms-sample">
+                    <div class="form-group">
+                      <label asp-for="@Model.FullName"></label>
+                      <input asp-for="@Model.FullName" class="form-control" placeholder="Author's fullname">
+                      <span class="text-danger" asp-validation-for="FullName"></span>
+                    </div>
+                    <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                    <a asp-area="manage" asp-controller="author" asp-action="index" class="btn btn-light">Cancel</a>
+                  </form>
+                </div>
+              </div>

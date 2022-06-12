@@ -1,0 +1,44 @@
+﻿@model ComplexPromotion
+
+<div class="card">
+    <div class="card-body">
+        <h4 class="card-title">Create promotion</h4>
+        <form enctype="multipart/form-data" method="post" class="forms-sample">
+            <div class="form-group">
+                <label asp-for="@Model.Title">Title</label>
+                <input asp-for="@Model.Title" class="form-control" placeholder="Title">
+                <span class="text-danger" asp-validation-for="Title"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="@Model.SubTitle">Subtitle</label>
+                <input asp-for="@Model.SubTitle" class="form-control" placeholder="Subtitle">
+                <span class="text-danger" asp-validation-for="SubTitle"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="@Model.RedirectUrl">Redirect Url</label>
+                <input asp-for="@Model.RedirectUrl" class="form-control" placeholder="Redirect Url">
+                <span class="text-danger" asp-validation-for="RedirectUrl"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="@Model.RedirectUrlText">Redirect Url Text</label>
+                <input asp-for="@Model.RedirectUrlText" class="form-control" placeholder="Redirect Url Text">
+                <span class="text-danger" asp-validation-for="RedirectUrlText"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="@Model.PromotionSize">Size</label>
+                <select asp-for="@Model.PromotionSize" class="form-control">
+                    <option selected value="small">small</option>
+                    <option value="mid">mid</option>
+                    <option value="large">large</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label asp-for="@Model.ImageFile">Image</label>
+                <input asp-for="@Model.ImageFile" accept="image/*" class="form-control">
+                <span class="text-danger" asp-validation-for="ImageFile"></span>
+            </div>
+            <button type="submit" class="btn btn-primary mr-2">Submit</button>
+            <a asp-area="manage" asp-controller="complexpromotion" asp-action="index" class="btn btn-light">Cancel</a>
+        </form>
+    </div>
+</div>

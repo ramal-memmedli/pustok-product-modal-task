@@ -1,0 +1,16 @@
+﻿@model Slider
+
+<div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">Delete Slider</h4>
+                  <form method="post" asp-route-id="@Model.Id" class="forms-sample">
+                    <div class="form-group">
+                      <label asp-for="@Model.Title1">Please type <strong>CONFIRM</strong> if you are sure for delete this slider</label>
+                      <input asp-for="@Model.Title1" value="" class="form-control" placeholder="Title">
+                      <span asp-validation-for="Title1" class="text-danger"></span>
+                    </div>
+                    <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                    <a asp-area="manage" asp-controller="slider" asp-action="details" asp-route-id="@Model.Id" class="btn btn-light">Cancel</a>
+                  </form>
+                </div>
+              </div>

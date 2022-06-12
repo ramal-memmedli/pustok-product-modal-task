@@ -1,0 +1,56 @@
+﻿@model List<Product>
+
+<div class="card">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="d-flex justify-content-between my-4 px-4">
+                <a class="btn btn-primary" asp-area="manage" asp-controller="dashboard" asp-action="index">Go back</a>
+                <a class="btn btn-success" asp-area="manage" asp-controller="product" asp-action="create">New product</a>
+            </div>
+        </div>
+    </div>
+    <div class="card-body">
+        <h4 class="card-title">Products</h4>
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>
+                            Image
+                        </th>
+                        <th>
+                            Name
+                        </th>
+                        <th>
+                            Genre
+                        </th>
+                        <th>
+                            Edit
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (Product product in Model)
+                    {
+                        <tr>
+                            <td>
+                                <img src="~/assets/uploads/productImages/@product.ProductImages?[0].Name">
+                            </td>
+                            <td>
+                                @product.Name
+                            </td>
+                            <td>
+                                @product.Genre.Name
+                            </td>
+                            <td>
+                                <a asp-area="manage" asp-controller="product" asp-action="details" asp-route-id="@product.Id" class="btn btn-primary">Details</a>
+                                <a asp-area="manage" asp-controller="product" asp-action="update" asp-route-id="@product.Id" class="btn btn-warning text-white">Update</a>
+                                <a asp-area="manage" asp-controller="product" asp-action="delete" asp-route-id="@product.Id" class="btn btn-danger text-white">Delete</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

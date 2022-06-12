@@ -1,0 +1,87 @@
+﻿@model Product
+
+@{
+    List<Author> authors = (List<Author>) ViewData["Authors"] ?? new List<Author>();
+    List<Genre> genres = (List<Genre>) ViewData["Genres"] ?? new List<Genre>();
+}
+
+<div class="card">
+    <div class="card-body">
+        <h4 class="card-title">Create product</h4>
+        <form enctype="multipart/form-data" method="post" class="forms-sample">
+            <div class="form-group">
+                <label asp-for="@Model.Name"></label>
+                <input asp-for="@Model.Name" class="form-control" placeholder="Title">
+                <span class="text-danger" asp-validation-for="Name"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="@Model.SalePrice"></label>
+                <input asp-for="@Model.SalePrice" class="form-control" placeholder="Sale price">
+                <span class="text-danger" asp-validation-for="SalePrice"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="@Model.CostPrice"></label>
+                <input asp-for="@Model.CostPrice" class="form-control" placeholder="Cost price">
+                <span class="text-danger" asp-validation-for="CostPrice"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="@Model.DiscountPrice"></label>
+                <input asp-for="@Model.DiscountPrice" class="form-control" placeholder="Discount price">
+                <span class="text-danger" asp-validation-for="DiscountPrice"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="@Model.Description"></label>
+                <input asp-for="@Model.Description" class="form-control" placeholder="Description">
+                <span class="text-danger" asp-validation-for="Description"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="@Model.InfoText"></label>
+                <input asp-for="@Model.InfoText" class="form-control" placeholder="Info text">
+                <span class="text-danger" asp-validation-for="InfoText"></span>
+            </div>
+            <div class="form-check form-check-flat form-check-primary">
+                <label asp-for="@Model.IsNew" class="form-check-label">
+                    <input asp-for="@Model.IsNew" class="form-check-input">
+                    Is new?
+                </label>
+                <span class="text-danger" asp-validation-for="IsNew"></span>
+            </div>
+            <div class="form-check form-check-flat form-check-primary">
+                <label asp-for="@Model.IsFeatured" class="form-check-label">
+                    <input asp-for="@Model.IsFeatured" class="form-check-input">
+                    Is featured?
+                </label>
+                <span class="text-danger" asp-validation-for="IsFeatured"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="@Model.AuthorId">Author</label>
+                <select asp-for="@Model.AuthorId" class="form-control mb-2">
+                    @foreach (Author author in authors)
+                    {
+                        <option value="@author.Id">@author.FullName</option>
+                    }
+                </select>
+                <span class="text-danger" asp-validation-for="AuthorId"></span>
+                <a asp-area="manage" asp-controller="author" asp-action="create" class="btn btn-success btn-small">New author</a>
+            </div>
+            <div class="form-group">
+                <label asp-for="@Model.GenreId">Genre</label>
+                <select asp-for="@Model.GenreId" class="form-control mb-2">
+                    @foreach (Genre genre in genres)
+                    {
+                        <option value="@genre.Id">@genre.Name</option>
+                    }
+                </select>
+                <span class="text-danger" asp-validation-for="AuthorId"></span>
+                <a asp-area="manage" asp-controller="genre" asp-action="create" class="btn btn-success btn-small">New genre</a>
+            </div>
+            <div class="form-group">
+                      <label asp-for="@Model.ImageFile">Image</label>
+                      <input asp-for="@Model.ImageFile" accept="image/*" class="form-control" placeholder="Image">
+                      <span class="text-danger" asp-validation-for="ImageFile"></span>
+                    </div>
+            <button type="submit" class="btn btn-primary mr-2">Submit</button>
+            <a asp-area="manage" asp-controller="product" asp-action="index" class="btn btn-light">Cancel</a>
+        </form>
+    </div>
+</div>

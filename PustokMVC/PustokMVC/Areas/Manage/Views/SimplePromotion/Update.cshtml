@@ -1,0 +1,21 @@
+﻿@model SimplePromotion
+
+<div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">Update promotion</h4>
+                  <form enctype="multipart/form-data" method="post" class="forms-sample">
+                    <div class="form-group">
+                      <label asp-for="@Model.RedirectUrl">Redirect Url</label>
+                      <input  asp-for="@Model.RedirectUrl" class="form-control" placeholder="Redirect Url">
+                      <span class="text-danger" asp-validation-for="RedirectUrl"></span>
+                    </div>
+                    <div class="form-group">
+                      <label asp-for="@Model.ImageFile">Image</label>
+                      <input  asp-for="@Model.ImageFile" accept="image/*" class="form-control" placeholder="Image">
+                      <span class="text-danger" asp-validation-for="ImageFile"></span>
+                    </div>
+                    <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                    <a asp-area="manage" asp-controller="simplepromotion" asp-action="index" class="btn btn-light">Cancel</a>
+                  </form>
+                </div>
+              </div>

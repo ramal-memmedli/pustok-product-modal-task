@@ -1,0 +1,23 @@
+﻿@model List<SimplePromotion>
+
+    <div class="d-flex justify-content-between">
+        <h2>Promotions</h2>
+        <a asp-area="manage" asp-controller="simplepromotion" asp-action="create" class="btn btn-success">New promotion</a>
+    </div>
+
+<div class="row">
+    @foreach (SimplePromotion promotion in Model)
+    {
+        <div class="col-lg-6 my-3">
+            <div class="card bg-dark text-white">
+                <img class="card-img" src="~/assets/uploads/promotionImages/@promotion.Image" alt="Card image">
+                <div class="card-img-overlay">
+                    <a class="btn btn-warning text-light" asp-area="manage" asp-controller="simplepromotion" asp-action="update" asp-route-id="@promotion.Id">Update</a>
+                    <a class="btn btn-danger text-light" asp-area="manage" asp-controller="simplepromotion" asp-action="delete" asp-route-id="@promotion.Id">Delete</a>
+                </div>
+            </div>
+        </div>
+
+    }
+</div>
+

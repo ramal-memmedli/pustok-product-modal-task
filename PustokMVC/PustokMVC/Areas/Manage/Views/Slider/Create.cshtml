@@ -1,0 +1,53 @@
+﻿@model Slider
+
+<div class="card">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="d-flex justify-content-between my-4 px-4">
+                <a class="btn btn-primary" asp-area="manage" asp-controller="slider" asp-action="index">Go back</a>
+            </div>
+        </div>
+    </div>
+                <div class="card-body">
+                  <h4 class="card-title">Update slider</h4>
+                  <form enctype="multipart/form-data" method="post" class="forms-sample">
+                    <div class="form-group">
+                      <label asp-for="@Model.Title1">First title</label>
+                      <input asp-for="@Model.Title1" class="form-control" placeholder="First title">
+                      <span class="text-danger" asp-validation-for="Title1"></span>
+                    </div>
+                    <div class="form-group">
+                      <label asp-for="@Model.Title2">Second title</label>
+                      <input asp-for="@Model.Title2" class="form-control" placeholder="Second title">
+                      <span class="text-danger" asp-validation-for="Title2"></span>
+                    </div>
+                    <div class="form-group">
+                      <label asp-for="@Model.Description">Description</label>
+                      <input asp-for="@Model.Description" class="form-control" placeholder="Description">
+                      <span class="text-danger" asp-validation-for="Description"></span>
+                    </div>
+                    <div class="form-group">
+                      <label asp-for="@Model.RedirectUrl">Redirect Url</label>
+                      <input asp-for="@Model.RedirectUrl" class="form-control" placeholder="Redirect Url">
+                      <span class="text-danger" asp-validation-for="RedirectUrl"></span>
+                    </div>
+                    <div class="form-group">
+                      <label asp-for="@Model.RedirectUrlText">Redirect Url Text</label>
+                      <input asp-for="@Model.RedirectUrlText" class="form-control" placeholder="Redirect Url Text">
+                      <span class="text-danger" asp-validation-for="RedirectUrlText"></span>
+                    </div>
+                    <div class="form-group">
+                      <label asp-for="@Model.ImageFile">Image</label>
+                      <input asp-for="@Model.ImageFile" accept="image/*" class="form-control" placeholder="Image">
+                      <span class="text-danger" asp-validation-for="ImageFile"></span>
+                    </div>
+                    <div class="form-group">
+                      <label asp-for="@Model.Order">Order</label>
+                      <input asp-for="@Model.Order" class="form-control" placeholder="Order">
+                      <span class="text-danger" asp-validation-for="Order"></span>
+                    </div>
+                    <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                    <button class="btn btn-light">Cancel</button>
+                  </form>
+                </div>
+              </div>
